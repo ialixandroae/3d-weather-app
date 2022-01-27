@@ -5,7 +5,7 @@ const initialState = {
   data: [],
   searchArea: {
     lat: '48.13',
-    long: '1.57',
+    long: '11.57',
     name: 'Munich',
   },
   weather: {

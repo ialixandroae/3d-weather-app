@@ -66,7 +66,9 @@ export const Panel = () => {
                   size="2x"
                   style={{ marginRight: '0.5rem' }}
                 />
-                <h1 className="textColor">{globalState.state.data[0].name}</h1>
+                <h1 className="textColor">
+                  {globalState.state.searchArea.name}
+                </h1>
               </span>
 
               <div className="icon bubble black">

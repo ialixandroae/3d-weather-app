@@ -31,9 +31,11 @@ export const WebSceneView = () => {
       });
 
       const weather = await getWeather(_baseURL, {
-        city: _searchArea.name,
+        lat: _searchArea.lat,
+        long: _searchArea.long,
         apiKey: _apiKey,
       });
+
       const esriWeather = getEsriWeather(weather?.weather[0]?.id);
       // load the map view at the ref's DOM node
       const view = new SceneView({
@@ -66,8 +68,8 @@ export const WebSceneView = () => {
       });
 
       searchWidget.on('select-result', (data) => {
-        const resultLat = data?.result?.center?.latitude;
-        const resultLong = data?.result?.center?.longitude;
+        const resultLat = data?.result?.feature?.geometry?.latitude;
+        const resultLong = data?.result?.feature?.geometry?.longitude;
         let resultName = data?.result?.name;
 
         dispatch({
@@ -80,7 +82,7 @@ export const WebSceneView = () => {
         });
 
         view.goTo({
-          center: [resultLat, resultLong],
+          center: [resultLong, resultLat],
           tilt: 85,
           zoom: 15,
         });
@@ -100,7 +102,8 @@ export const WebSceneView = () => {
     async function fetchWeather() {
       try {
         const weather = await getWeather(_baseURL, {
-          city: _searchArea.name,
+          lat: _searchArea.lat,
+          long: _searchArea.long,
           apiKey: _apiKey,
         });
         dispatch({ type: 'SET_DATA', data: [weather] });

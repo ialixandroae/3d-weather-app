@@ -2,7 +2,7 @@ import moment from 'moment';
 
 const getWeather = async (baseURL, payload) => {
   const data = await fetch(
-    `${baseURL}?q=${payload.city}&units=metric&mode=json`,
+    `${baseURL}?lat=${payload.lat}&lon=${payload.long}&units=metric&mode=json`,
     {
       method: 'GET',
       headers: {
