@@ -26,6 +26,7 @@ Link: https://ionutalixandroae.com/3d-weather-app/
 
 The following resources have been used to create this application:
 
+- <a target="blank" href="https://www.arcgis.com/home/item.html?id=01d3b850d88e4223a18ddbc6afae9b3a">Munich 3D Mesh CityMapper2 - Source attribution: Captured with Leica CityMapper-2 – processed with SURE by nFrames/Esri; Copyright: 2021 Hexagon / Esri.</a>
 - <a target="blank" href="https://reactjs.org/">React</a>
 - <a target="blank" href="https://developers.arcgis.com/javascript/">ArcGIS API for JavaScript 4.22</a>
 - <a target="blank" href="https://rapidapi.com/">Rapid API</a>
