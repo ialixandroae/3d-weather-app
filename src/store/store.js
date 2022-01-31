@@ -14,7 +14,7 @@ const initialState = {
   },
   modal: false,
   baseURL: 'https://community-open-weather-map.p.rapidapi.com/weather',
-  apiKey: '3af5bcce6bmsha951405d9ae93adp1c1f27jsndf942220638c',
+  apiKey: '1f1c83d6fdmsh7e715c65498efa3p1f9c2cjsnd446e785291c',
 };
 const store = createContext(initialState);
 const { Provider } = store;

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Layout, Row, Col } from 'antd';
+import { Layout, Row, Col, Card } from 'antd';
 
 import { WebSceneView } from '../scene/Scene';
 import { Panel } from '../panel/Panel';
@@ -69,6 +69,18 @@ function Main() {
               xl={{ span: 20 }}
               className="leftCol"
             >
+              <Card
+                title="Munich 3D Mesh CityMapper2"
+                bordered={false}
+                className="sourceAttribution"
+              >
+                <p>
+                  Source attribution: Captured with Leica CityMapper-2 –
+                  processed with SURE by nFrames/Esri; Copyright: 2021 Hexagon /
+                  Esri.
+                </p>
+              </Card>
+
               <WebSceneView />
             </Col>
             <Col

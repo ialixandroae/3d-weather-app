@@ -422,6 +422,14 @@
     font-size: 1.2rem;
 }
 
+.sourceAttribution {
+	width: 300px !important;
+    position: absolute !important;
+    bottom: 2rem;
+    left: 0.5rem;
+    z-index: 999;
+}
+
 @media only screen and (max-width: 992px) {
 	
 	.leftCol {
@@ -451,5 +459,18 @@
 
 	.ant-layout-header {
 		padding: 0 25px !important;
+	}
+
+	.sourceAttribution{
+		width: 200px !important;
+		font-size: 10px !important;
+	}
+
+	.ant-card-body {
+		padding: 6px !important;
+	}
+
+	.ant-card-head {
+		padding: 0 12px !important;
 	}
   }
