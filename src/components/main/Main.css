@@ -430,6 +430,12 @@
     z-index: 999;
 }
 
+.esri-view-height-medium .esri-ui-corner .esri-component .esri-expand__content {
+	background-color: white;
+	padding: 0.5rem;
+	width: 300px;
+}
+
 @media only screen and (max-width: 992px) {
 	
 	.leftCol {
@@ -472,5 +478,9 @@
 
 	.ant-card-head {
 		padding: 0 12px !important;
+	}
+
+	.esri-view-width-xsmall .esri-expand--auto .esri-expand__container--expanded {
+		height: 20%;
 	}
   }
