@@ -35,13 +35,13 @@ export const WebSceneView = () => {
         },
       });
 
-      // const weather = await getWeather(_baseURL, {
-      //   lat: _searchArea.lat,
-      //   long: _searchArea.long,
-      //   apiKey: _apiKey,
-      // });
+      const weather = await getWeather(_baseURL, {
+        lat: _searchArea.lat,
+        long: _searchArea.long,
+        apiKey: _apiKey,
+      });
 
-      // const esriWeather = getEsriWeather(weather?.weather[0]?.id);
+      const esriWeather = getEsriWeather(weather?.weather[0]?.id);
       // load the map view at the ref's DOM node
       const view = new SceneView({
         container: sceneRef.current,
@@ -111,36 +111,36 @@ export const WebSceneView = () => {
     loadWebScene();
   }, []);
 
-  // useEffect(() => {
-  //   async function fetchWeather() {
-  //     try {
-  //       const weather = await getWeather(_baseURL, {
-  //         lat: _searchArea.lat,
-  //         long: _searchArea.long,
-  //         apiKey: _apiKey,
-  //       });
-  //       dispatch({ type: 'SET_DATA', data: [weather] });
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   }
-  //   fetchWeather();
-  // }, [globalState.state.searchArea]);
+  useEffect(() => {
+    async function fetchWeather() {
+      try {
+        const weather = await getWeather(_baseURL, {
+          lat: _searchArea.lat,
+          long: _searchArea.long,
+          apiKey: _apiKey,
+        });
+        dispatch({ type: 'SET_DATA', data: [weather] });
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchWeather();
+  }, [globalState.state.searchArea]);
 
-  // useEffect(() => {
-  //   if (globalState.state.data.length > 0) {
-  //     const weather = getEsriWeather(globalState.state.data[0].weather[0].id);
+  useEffect(() => {
+    if (globalState.state.data.length > 0) {
+      const weather = getEsriWeather(globalState.state.data[0].weather[0].id);
 
-  //     dispatch({
-  //       type: 'SET_WEATHER',
-  //       data: weather,
-  //     });
+      dispatch({
+        type: 'SET_WEATHER',
+        data: weather,
+      });
 
-  //     if (sceneView?.environment) {
-  //       sceneView.environment.weather = weather;
-  //     }
-  //   }
-  // }, [globalState.state.data]);
+      if (sceneView?.environment) {
+        sceneView.environment.weather = weather;
+      }
+    }
+  }, [globalState.state.data]);
 
   return <div style={{ height: '100%', width: '100%' }} ref={sceneRef} />;
 };
