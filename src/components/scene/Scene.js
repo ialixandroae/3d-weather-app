@@ -57,7 +57,7 @@ export const WebSceneView = () => {
           atmosphere: {
             quality: 'high',
           },
-          // weather: esriWeather,
+          weather: esriWeather,
         },
       });
 
