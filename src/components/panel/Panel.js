@@ -17,7 +17,29 @@ const { Content } = Layout;
 export const Panel = () => {
   // console.log("Render Panel");
   const globalState = useContext(store);
-
+  if (!globalState.state.data[0].hasOwnProperty('weather')) {
+    return (
+      <Content>
+        <Card className="cardStyle" style={{ border: '0' }}>
+          <article className="box weather">
+            <Row>
+              <Col
+                xs={{ span: 12 }}
+                sm={{ span: 12 }}
+                md={{ span: 12 }}
+                lg={{ span: 24 }}
+                xl={{ span: 24 }}
+              >
+                <Title className="textColor" level={3}>
+                  Cannot load weather.
+                </Title>
+              </Col>
+            </Row>
+          </article>
+        </Card>
+      </Content>
+    );
+  }
   return (
     <Content>
       <Card className="cardStyle" style={{ border: '0' }}>

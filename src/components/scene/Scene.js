@@ -41,7 +41,12 @@ export const WebSceneView = () => {
         apiKey: _apiKey,
       });
 
-      const esriWeather = getEsriWeather(weather?.weather[0]?.id);
+      let esriWeather = undefined;
+      try {
+        esriWeather = getEsriWeather(weather?.weather[0]?.id);
+      } catch (error) {
+        console.error(error);
+      }
       // load the map view at the ref's DOM node
       const view = new SceneView({
         container: sceneRef.current,
@@ -128,7 +133,10 @@ export const WebSceneView = () => {
   }, [globalState.state.searchArea]);
 
   useEffect(() => {
-    if (globalState.state.data.length > 0) {
+    if (
+      globalState.state.data.length > 0 &&
+      globalState.state.data[0].hasOwnProperty('weather')
+    ) {
       const weather = getEsriWeather(globalState.state.data[0].weather[0].id);
 
       dispatch({
